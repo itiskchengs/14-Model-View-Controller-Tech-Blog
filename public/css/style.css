@@ -1,0 +1,252 @@
+/*=========================
+    ROOT COLORS
+=========================*/
+/*Setting up */
+:root{
+    --color-1: #011627;
+    --color-2: #FB4D3D;
+    --color-3: #547AA5;
+    --color-4: #C5C9A4;
+    --color-5: #627C85;
+    --color-font: #fff;
+}
+/*=========================
+    GENERAL STYLES
+=========================*/
+
+/*This set 1 rem to 10px instead of it being 16px so now 1.6 rem is now 16px*/
+html{
+    font-size: 62.5%;
+}
+/*Setting up the h1 - h6 tags with the font-sizes*/
+h1 {
+    font-size: 4rem;
+    font-family: 'Open Sans';
+}
+  
+h2 {
+    font-size: 3.5rem;
+    font-family: 'Open Sans';
+}
+  
+h3 {
+    font-size: 3rem;
+    font-family: 'Open Sans';
+}
+  
+h4 {
+    font-size: 2.5rem;
+    font-family: 'Open Sans';
+}
+  
+h5 {
+    font-size: 2rem;
+    font-family: 'Open Sans';
+}
+  
+h6 {
+    font-size: 1.5rem;
+    font-family: 'Open Sans';
+} 
+p {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-family: 'Open Sans';
+    font-weight: 300;
+}
+
+/*================
+    NAVIGATION
+=================*/
+nav{
+    background: var(--color-5) !important;
+}
+.navbar-nav{
+    margin-right: 4rem;
+    padding: 1.5rem;
+}
+.navbar-nav li{
+    padding: 0rem 1rem;
+}
+.navbar-nav li a{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    color: var(--color-font);
+}
+.navbar-nav li a:hover{
+    color: var(--color-4);
+    text-decoration: none;
+}
+.navbar-brand{
+    margin-left: 4rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing:1px;
+    text-transform: uppercase;
+    color: var(--color-font);
+}
+.navbar-brand:hover{
+    color: var(--color-4);
+    text-decoration: none;
+}
+
+/*================
+    HOMEPAGE 
+================*/
+
+.homepage-header{
+    text-align: center;
+    margin-top: 10rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/*================
+    DASHBOARD
+================*/
+#post-button{
+    background-color: var(--color-2);
+    width: 30%;
+    position:fixed;
+    bottom: 100px;
+}
+#post-button:hover{
+    background-color: var(--color-3);
+    text-decoration: none;
+}
+#post-button a{
+    color: var(--color-font);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+}
+
+/*====================
+    POST FORM
+====================*/
+#new-post-form{
+    width: 100%;
+    margin-top: 5rem;
+}
+#new-post-form input{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#new-post-form label{
+    font-size: 1.8rem;
+}
+#textTitle{
+    height: 30%;
+}
+#textContent{
+    height: 100%;
+}
+#textSubmit{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border: 0px solid var(--color-4);
+    color: var(--color-font);
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    border-radius: 4px;
+}
+#textSubmit:hover{
+    background-color: var(--color-2);
+}
+
+/*==================
+    SIGNIN FORM
+===================*/
+
+#signin-form{
+    width: 100%;
+    margin-top: 5rem;
+}
+#signin-form input{
+    width: 100%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signin-form label{
+    font-size: 1.8rem;
+}
+#signin-submit{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border: 0px solid var(--color-4);
+    color: var(--color-font);
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    border-radius: 4px;
+}
+#signin-submit:hover{
+    background-color: var(--color-2);
+}
+#signup-create{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border: 0px solid var(--color-4);
+    color: var(--color-font);
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    border-radius: 4px; 
+}
+#signup-create:hover{
+    background-color: var(--color-2);
+}
+
+/*==================
+    SIGNUP FORM
+===================*/
+
+#signup-form{
+    width: 100%;
+    margin-top: 5rem;
+}
+#signup-form input{
+    width: 100%;
+    height: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#signup-form label{
+    font-size: 1.8rem;
+}
+#signup-submit{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    background-color: var(--color-4);
+    border: 0px solid var(--color-4);
+    color: var(--color-font);
+    margin-top: 2rem;
+    padding: 1.2rem 2rem;
+    border-radius: 4px;
+}
+#signup-submit:hover{
+    background-color: var(--color-2);
+}
+
+/*================
+      FOOTER
+================*/
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-5);
+}
+footer p{
+    color: var(--color-font);
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-top: 1rem;
+}

@@ -1,14 +1,22 @@
 const router = require('express').Router();
 const {User} = require('../../models');
 
+  //Signout post dataTypes
+  router.post('/logout', (req, res) => {
+    if (req.session.loggedIn) {
+    req.session.destroy(() => {
+         res.status(204).end();
+       });
+     } else {
+       res.status(404).end();
+     }
+   });
+
 //Signup post data
 router.post('/signup', async (req, res) => {
     try{
-        const newLogin = await User.create({
-            username: req.body.email,
-            password: req.body.password
-        });
-
+        const newLogin = await User.create(req.body);
+        console.log(req.body);
         req.session.save(() => {
         req.session.user_id = newLogin.id;
         req.session.loggedIn = true;
@@ -25,10 +33,8 @@ router.post('/signup', async (req, res) => {
 router.post('/signin', async (req, res) => {
     console.log(req.body);
     try {
-      const userData = await User.findOne({ where: { username: req.body.email } });
-        console.log(userData);
+      const userData = await User.findOne({ where: { username: req.body.email }, });
       if (!userData) {
-        console.log('Inside if');
         res
           .status(400)
           .json({ message: 'Incorrect email or password, please try again' });
@@ -56,16 +62,6 @@ router.post('/signin', async (req, res) => {
       res.status(400).json(err);
     }
   });
-
-  //Signout post dataTypes
-  router.post('/logout', (req, res) => {
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    } else {
-      res.status(404).end();
-    }
-  });
+  
 
 module.exports = router;

@@ -1,6 +1,13 @@
-{{#if logged_in}}
+{{#if loggedIn}}
+{{#each postData as |post|}}
+    <div class="post-container">
+        <h4>{{title}}</h4>
+        <p>{{content}}</p>
+        <p>{{date}}</p>
+    </div>
+{{/each}}
 <div class="d-flex justify-content-center">
-<a id="post-button" class="link" href="dashboard/new">New Post</a>
+<a id="post-button" class="link" href="/new">New Post</a>
 </div>
 {{else}}
 {{/if}}

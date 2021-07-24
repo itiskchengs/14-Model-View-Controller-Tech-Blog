@@ -109,16 +109,32 @@ nav{
     width: 30%;
     position:fixed;
     bottom: 100px;
+    color: var(--color-font);
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    padding: 1rem;
+    text-align: center;
 }
 #post-button:hover{
     background-color: var(--color-3);
     text-decoration: none;
 }
-#post-button a{
+.post-container{
+    margin-top: 5rem;
+    border: 1px solid #000;
+}
+.post-container h4{
+    text-align: center;
+    background: var(--color-3);
+    padding: 1.5rem 0rem;
     color: var(--color-font);
-    font-size: 1.8rem;
     text-transform: uppercase;
 }
+.post-container p{
+    margin-top: 1rem;
+    padding: 2rem 4rem;
+}
+
 
 /*====================
     POST FORM
@@ -153,6 +169,43 @@ nav{
 }
 #textSubmit:hover{
     background-color: var(--color-2);
+}
+
+/*==================
+    SINGLE POST
+==================*/
+
+#single-post-header{
+    margin-top: 5rem;
+}
+#comment-message{
+    display: flex;
+}
+#comment-text{
+    padding-bottom: 0.5rem;
+    width: 30%;
+}
+#send-comment-btn{
+    padding-bottom: 0rem;
+    width: 10%;
+    border: none;
+    color: var(--color-font);
+    background: var(--color-3);
+    padding: 1rem;
+    border-radius: 0.4rem;
+    margin-left: 0.5rem;
+}
+#send-comment-btn:hover{
+    background: var(--color-4);
+}
+.comment-content{
+    border-bottom: 1px solid #000;
+}
+#postId{
+    display: none;
+}
+#postId-url{
+    display: none;
 }
 
 /*==================

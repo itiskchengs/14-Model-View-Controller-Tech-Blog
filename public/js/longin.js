@@ -4,14 +4,9 @@ const signInFormHandler = async (e) => {
     const email = document.querySelector('#username').value.trim();
     const password = document.querySelector('#password').value.trim();
     
-    let newUser = {
-        email: email,
-        password: password,
-    }
-
     const response = await fetch ('/api/user/signin', {
         method: 'POST',
-        body: JSON.stringify(newUser),
+        body: JSON.stringify({email, password}),
         headers: { 'Content-Type': 'application/json' },
     });
     console.log(response);

@@ -1,20 +1,20 @@
 //Express app
-const express = require('express');
-const app = express();
-//Path dependency
 const path = require('path');
-//Connection file 
-const sequelize = require('./config/connection');
-//Express session
+const express = require('express');
 const session = require('express-session');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-//Routes
-const routes = require('./controllers');
+const exphbs = require('express-handlebars');
 
 //Handlebars
-const exphbs = require('express-handlebars');
 const hbs = exphbs.create({});
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+const routes = require('./controllers');
+
+//Initiate express
+const app = express();
+const PORT = process.env.PORT || 3002;
+
 
 const sess = {
     secret: 'Super secret secret',
@@ -27,9 +27,6 @@ const sess = {
   };
   
   app.use(session(sess));
-
-//Initiate express
-const PORT = process.env.PORT || 3001;
 
 //Hnadlebars setup
 app.engine('handlebars', hbs.engine);

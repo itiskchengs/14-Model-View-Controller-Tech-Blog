@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
+const sequelize = require('../config/connection');
 
 router.get('/', async (req, res) => {
     try{
@@ -71,22 +72,6 @@ router.get('/new', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 })
-/*
-router.get('/:id', withAuth, async (req, res) => {
-    try{
-        const postDataId = await Post.findByPk(req.params.id)
-        const postData = postDataId.get({ plain: true });
-        
-        res.render('post', {
-            postData,
-            loggedIn: req.session.loggedIn,
-        })
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
-*/
 
 router.get('/post/:id', withAuth, async (req, res) => {
     try{

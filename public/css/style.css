@@ -170,6 +170,16 @@ nav{
 #textSubmit:hover{
     background-color: var(--color-2);
 }
+.post-view{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.post-view input{
+    margin-top: 1.5rem;
+}
 
 /*==================
     SINGLE POST
@@ -199,7 +209,8 @@ nav{
     background: var(--color-4);
 }
 .comment-content{
-    border-bottom: 1px solid #000;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
 }
 #postId{
     display: none;
@@ -207,6 +218,11 @@ nav{
 #postId-url{
     display: none;
 }
+.comment-container h3{
+    border-bottom: 1px solid #000;
+    margin-top: 5rem;
+}
+
 
 /*==================
     SIGNIN FORM

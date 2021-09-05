@@ -1,12 +1,18 @@
-<h4 id="single-post-header">{{postData.title}}</h4>
-<p>{{postData.content}}</p>
+<h4 id="single-post-header">Tite: {{postData.title}}</h4>
+<p>Content: {{postData.content}}</p>
+<p>Date Create: {{postData.date}}</p>
+<p>Created By : {{userData.username}}</p>
+
 <p id="postId">{{postId}}</p>
 <p id="postId-url">{{urlId}}</p>
 
 <div class="comment-container">
-{{#each commentData as |comment|}}
+<h3>Comments</h3>
+{{#each postData.comments as |comment|}}
         <p class="comment-content">{{content}}</p>
+        <p>Posted on: {{date}}</p>
 {{/each}}
+<p>Posted by: {{userDataComment.username}}</p>
 </div>
 
 <form id="comment-message">

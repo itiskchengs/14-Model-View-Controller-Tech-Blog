@@ -1,5 +1,6 @@
 const postId = document.querySelector('#postId').innerHTML;
 const urlId = document.querySelector('#postId-url').innerHTML;
+//const userId = document.querySelector('#user-id').innerHTML;
 
 const postComment = async (e) => {
     e.preventDefault();

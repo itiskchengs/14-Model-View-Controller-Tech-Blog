@@ -72,6 +72,23 @@ router.get('/new', withAuth, async (req, res) => {
     }
 })
 
+
+router.get('/:id', withAuth, async (req, res) => {
+    try{
+        const postDataId = await Post.findByPk(req.params.id)
+        const postData = postDataId.get({ plain: true });
+        
+        res.render('post', {
+            postData,
+            loggedIn: req.session.loggedIn,
+        })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
+
 router.get('/post/:id', withAuth, async (req, res) => {
     try{
 

@@ -90,6 +90,13 @@ nav{
     text-decoration: none;
 }
 
+@media screen and (max-width: 950px){
+    .navbar-toggler{
+        background: #000;
+        color: #fff;
+    }
+}
+
 /*================
     HOMEPAGE 
 ================*/
@@ -297,6 +304,38 @@ nav{
 }
 #signup-submit:hover{
     background-color: var(--color-2);
+}
+
+/*================
+        POST
+================*/
+
+.post-view{
+    margin-top: 2.5rem;
+}
+#post-title-2{
+    font-size: 4rem;
+    font-weight: bold;
+}
+#post-content-2{
+    font-size: 2rem;
+}
+#post-id{
+    display: none;
+}
+.post-buttons-2{
+    display: flex;
+    flex-direction: row;
+}
+.post-buttons-2 a{
+    padding: 1rem 2rem;
+    background: var(--color-4);
+}
+#edit-btn{
+    margin-right: 2rem;
+}
+#delete-btn{
+    margin-left: 2rem;
 }
 
 /*================

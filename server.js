@@ -3,17 +3,18 @@ const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 //Handlebars
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
+
 
 
 //Initiate express
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 3001;
 
 
 const sess = {
@@ -40,8 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Using routes
 app.use(routes);
 
-sequelize.sync({force: false}).then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}. Visit http://localhost:${PORT}`);
-    });
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
 });

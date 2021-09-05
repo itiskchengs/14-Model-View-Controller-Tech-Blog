@@ -1,12 +1,17 @@
 const router = require('express').Router();
-const {Post} = require('../models');
+const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 //const sequelize = require('../config/connection');
 
 router.get('/', async (req, res) => {
     try{
 
+        const allNewPostData = await Post.findAll();
+
+        const newPostData = allNewPostData.map((newpost) => newpost.get({ plain: true }));
+
         res.render('homepage', {
+            newPostData,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
@@ -67,6 +72,53 @@ router.get('/new', withAuth, async (req, res) => {
         res.status(500).json(err)
     }
 })
+
+router.get('/post/:id', withAuth, async (req, res) => {
+    try{
+
+        const postDataId = await Post.findByPk(req.params.id, {
+            include: [{
+                model: User,
+                attributes: ['username'],
+            },
+            {
+                model: Comment,
+                include: [User]
+            }]
+        });
+        const postData = postDataId.get({ plain: true });
+        console.log('postData', postData);
+        const postId = req.session.user_id;
+        const urlId = req.params.id;
+
+        const userDataId = await User.findOne({
+            where: {id: postDataId.user_id},
+        })
+
+        const userData = userDataId.get({ plain: true });
+
+        /*const commentDataId = await Comment.findAll({ 
+            where: {user_id: postId, poster_id: urlId},
+        });*/
+
+        const userDataCommentId = await User.findOne({
+            where: {id: req.session.user_id},
+        });
+
+        const userDataComment = userDataCommentId.get({ plain: true });
+        
+        res.render('single-post', { 
+            userDataComment,
+            userData,
+            postData,
+            postId,
+            urlId,
+            loggedIn: req.session.loggedIn,
+        });
+    } catch (err){
+        res.status(500).json(err);
+    }
+});
 
 router.delete('/:id', withAuth, async (req, res) => {
     try{

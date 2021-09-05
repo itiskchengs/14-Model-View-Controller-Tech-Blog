@@ -28,7 +28,7 @@
 
   ## Screenshot
 
-  ![This is a e-commerce-back-end using crud functionalities](./public/img/techblog-image.png)
+  ![This is Tech Blog with full CRUD functionality](./public/img/techblog-image.png)
 
   ## Site
 
